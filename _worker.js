@@ -5,7 +5,7 @@ let hub_host = 'registry-1.docker.io';
 // Docker认证服务器地址
 const auth_url = 'https://auth.docker.io';
 // 自定义的工作服务器地址
-let workers_url = 'https://xxx/';
+let workers_url = 'https://dk.emoo.us.kg/';
 
 let 屏蔽爬虫UA = ['netcraft'];
 
@@ -247,7 +247,7 @@ export default {
 			pathname == '/auth/profile',
 		];
 
-		if (conditions.some(condition => condition) && (fakePage === true || hostTop == 'docker')) {
+		if (conditions.some(condition => condition) && !pathname.startsWith('/v2/library/') && (fakePage === true || hostTop == 'docker')) {
 			if (env.URL302) {
 				return Response.redirect(env.URL302, 302);
 			} else if (env.URL) {
